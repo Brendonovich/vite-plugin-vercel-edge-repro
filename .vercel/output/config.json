@@ -1,0 +1,43 @@
+{
+  "version": 3,
+  "routes": [
+    {
+      "src": "^/(?:(.+)/)?index(?:\\.html)?/?$",
+      "headers": {
+        "Location": "/$1"
+      },
+      "status": 308
+    },
+    {
+      "src": "^/(.*)\\.html/?$",
+      "headers": {
+        "Location": "/$1"
+      },
+      "status": 308
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/api/edge-config$",
+      "dest": "/api/edge-config",
+      "check": true
+    },
+    {
+      "src": "^((?!/api).*)$",
+      "dest": "/ssr_/?__original_path=$1",
+      "check": true
+    }
+  ],
+  "overrides": {
+    "404.html": {
+      "path": "404"
+    },
+    "about/index.html": {
+      "path": "about"
+    },
+    "index.html": {
+      "path": ""
+    }
+  }
+}
