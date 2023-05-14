@@ -17,7 +17,8 @@ const config: UserConfig = {
     additionalEndpoints: [
       {
         source: "_api/edge-config.ts",
-        destination: "api/edge-config",
+        destination: "edge-config",
+        addRoute: true,
         edge: true,
       },
     ],
