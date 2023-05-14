@@ -1,18 +1,7 @@
 import { get } from "@vercel/edge-config";
 
-export async function GET(
-  _: Request,
-  {
-    params,
-  }: {
-    params: {
-      target: string;
-      arch: string;
-      currentVersion: string;
-    };
-  }
-) {
-  const releases = await get<Record<string, any>>("main");
+export async function GET() {
+  const data = await get("config");
 
-  return new Response(releases![params.target]);
+  return new Response(JSON.stringify(data));
 }
