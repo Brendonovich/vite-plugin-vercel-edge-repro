@@ -16,12 +16,12 @@ const config: UserConfig = {
   vercel: {
     additionalEndpoints: [
       {
-        source: "_api/edge-config.ts",
+        source: "edge/edge-config.ts",
         destination: "edge-config",
         edge: true,
       },
       {
-        source: "_api/[dynamic]/[route].ts",
+        source: "edge/[dynamic]/[route].ts",
         destination: "/api/[dynamic]/[route]",
         edge: true,
       },
