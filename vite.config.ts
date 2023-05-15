@@ -18,7 +18,11 @@ const config: UserConfig = {
       {
         source: "_api/edge-config.ts",
         destination: "edge-config",
-        addRoute: true,
+        edge: true,
+      },
+      {
+        source: "_api/[dynamic]/[route].ts",
+        destination: "/api/[dynamic]/[route]",
         edge: true,
       },
     ],
